@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+use Voyager\System\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+define('VENUSIAN_START', microtime(true));
+
+// Register the Composer autoloader...
+require __DIR__.'/vendor/autoload.php';
+
+/** @var Application $app */
+$app = require_once __DIR__.'/bootstrap/runner.php';
+
+$status = $app->handleSketch(new ArgvInput);
+
+exit($status);
