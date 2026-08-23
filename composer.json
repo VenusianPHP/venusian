@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4|^8.5|^8.6",
-        "venusian/framework": "^0.8.0",
+        "venusian/framework": "^0.8.1",
         "venusian/probe": "^0.8.0"
     },
     "require-dev": {
