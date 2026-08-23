@@ -5,7 +5,7 @@ description: A project built on venusian/framework. Two entrypoints — the comp
 resource: ../composer.json
 tags: [venusian, voyager, application, skeleton, php]
 status: draft
-generated: { by: agent:cursor-okf-generator, at: 2026-08-23T03:20:00Z }
+generated: { by: agent:cursor-okf-generator, at: 2026-08-23T03:51:00Z }
 stale_after: 2026-11-22
 sources:
   - id: composer
@@ -36,9 +36,9 @@ The `.okf/` bundle ships **with** the skeleton so agents keep this context in
 local development. Exclude it from deploy archives by adding `/.okf export-ignore`
 to `.gitattributes` when you ship to a target.[^readme]
 
-> Note: `README.md` and `.env.example` still carry the upstream **ScrapyardIO**
-> branding, while `composer.json` and `config/app.php` use **Venusian**. Same
-> skeleton; the README copy is what lags.[^readme][^composer]
+> Note: [`.env.example`](../.env.example) still sets `APP_NAME=ScrapyardIO`
+> (upstream branding), while `README.md`, `composer.json`, and `config/app.php`
+> use **Venusian**. Same skeleton; the `.env.example` default is what lags.[^readme][^composer]
 
 # Requirements
 

@@ -1,24 +1,24 @@
-# ScrapyardIO
+# Venusian PHP Framework
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/scrapyard-io/framework.svg)](https://packagist.org/packages/scrapyard-io/framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/scrapyard-io/framework.svg)](https://packagist.org/packages/scrapyard-io/framework)
-[![License](https://img.shields.io/packagist/l/scrapyard-io/framework.svg)](https://packagist.org/packages/scrapyard-io/framework)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/venusian/framework.svg)](https://packagist.org/packages/venusian/framework)
+[![Total Downloads](https://img.shields.io/packagist/dt/venusian/framework.svg)](https://packagist.org/packages/venusian/framework)
+[![License](https://img.shields.io/packagist/l/venusian/framework.svg)](https://packagist.org/packages/venusian/framework)
 
-## About ScrapyardIO
+## About Venusian
 
-ScrapyardIO is a PHP application framework with expressive, elegant syntax for building applications that use windowed GUIs, human inputs, and integrated circuits. We believe development must be an enjoyable and creative experience to be truly fulfilling. ScrapyardIO takes the pain out of development by easing common tasks used in embedded and edge projects, such as:
+Venusian is a PHP application framework with expressive, elegant syntax for building applications that use windowed GUIs, human inputs, and integrated circuits. We believe development must be an enjoyable and creative experience to be truly fulfilling. Venusian takes the pain out of development by easing common tasks used in embedded and edge projects, such as:
 
-- [Powerful dependency injection container](https://scrapyard-io.projectsaturnstudios.com/docs/chassis)
-- Multiple back-ends for [cache](https://scrapyard-io.projectsaturnstudios.com/docs/cache) storage
-- Database agnostic [schema migrations](https://scrapyard-io.projectsaturnstudios.com/docs/migrations)
-- [Robust background job processing](https://scrapyard-io.projectsaturnstudios.com/docs/queues)
-- [Workshop CLI](https://scrapyard-io.projectsaturnstudios.com/docs/workshop) and [Wrench REPL](https://scrapyard-io.projectsaturnstudios.com/docs/workshop#wrench)
+- [Powerful dependency injection container](https://venusian.projectsaturnstudios.com/docs/chassis)
+- Multiple back-ends for [cache](https://venusian.projectsaturnstudios.com/docs/cache) storage
+- Database agnostic [schema migrations](https://venusian.projectsaturnstudios.com/docs/migrations)
+- [Robust background job processing](https://venusian.projectsaturnstudios.com/docs/queues)
+- [Workshop CLI](https://venusian.projectsaturnstudios.com/docs/workshop) and [Wrench REPL](https://venusian.projectsaturnstudios.com/docs/workshop#wrench)
 
-ScrapyardIO is accessible, powerful, and provides tools required for large, robust applications — including driving GPIO, I2C, SPI, UART, and related hardware through companion packages.
+Venusian is accessible, powerful, and provides tools required for large, robust applications — including driving GPIO, I2C, SPI, UART, and related hardware through companion packages.
 
-## Learning ScrapyardIO
+## Learning Venusian
 
-ScrapyardIO has documentation and guides on the [ScrapyardIO website](https://scrapyard-io.projectsaturnstudios.com/docs), making it a breeze to get started with the framework.
+Venusian has documentation and guides on the [Venusian website](https://venusian.projectsaturnstudios.com/docs), making it a breeze to get started with the framework.
 
 ## Open Knowledge Format (`.okf`)
 
@@ -34,16 +34,16 @@ That keeps `.okf` in your development clone while omitting it from `git archive`
 
 ## Contributing
 
-Thank you for considering contributing to ScrapyardIO! The contribution guide can be found in the [ScrapyardIO documentation](https://scrapyard-io.projectsaturnstudios.com/docs/contributions).
+Thank you for considering contributing to Venusian! The contribution guide can be found in the [Venusian documentation](https://venusian.projectsaturnstudios.com/docs/contributions).
 
 ## Code of Conduct
 
-In order to ensure that the ScrapyardIO community is welcoming to all, please review and abide by the [Code of Conduct](https://scrapyard-io.projectsaturnstudios.com/docs/contributions#code-of-conduct).
+In order to ensure that the Venusian community is welcoming to all, please review and abide by the [Code of Conduct](https://venusian.projectsaturnstudios.com/docs/contributions#code-of-conduct).
 
 ## Security Vulnerabilities
 
-Please review [our security policy](https://github.com/ScrapyardIO/scrapyard-io/security/policy) on how to report security vulnerabilities.
+Please review [our security policy](https://github.com/VenusianPHP/framework/security/policy) on how to report security vulnerabilities.
 
 ## License
 
-The ScrapyardIO framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Venusian framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
