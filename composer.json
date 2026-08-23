@@ -10,7 +10,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.4|^8.5|^8.6",
-        "venusian/framework": "^0.8.0"
+        "venusian/framework": "^0.8.0",
+        "venusian/probe": "^0.8.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -66,20 +67,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
-        },
-        "platform": {
-            "ext-opengl": "0.7.0"
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/Volumes/ProjectSaturnStudios/Development/PHP/ProjectSaturnStudios/dev/venusian/framework",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -1,6 +1,7 @@
 # Update Log
 
 ## 2026-08-23
+* **Update**: `README.md` Workshop CLI / Wrench REPL → Computer CLI / Probe REPL.
 * **Update**: `README.md` rebranded from ScrapyardIO to Venusian (title, badges,
   URLs, security policy). Refreshed the branding-lag note in
   [overview](overview.md) — only `.env.example` (`APP_NAME=ScrapyardIO`) still
