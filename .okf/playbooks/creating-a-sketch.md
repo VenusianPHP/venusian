@@ -1,11 +1,10 @@
 ---
 type: Playbook
 title: Creating a sketch
-description: Scaffold a new sketch, implement its loop, and run it with the runner binary.
-tags: [venusian, sketches, playbook, make]
+description: Write a sketch class, implement loop(), run it with rocket.
+tags: [venusian, sketches, playbook]
 status: draft
-generated: { by: agent:cursor-okf-generator, at: 2026-08-23T03:20:00Z }
-stale_after: 2026-11-22
+generated: { by: claude-opus-5-5, at: 2026-09-30T00:00:00Z }
 sources:
   - id: hello-world
     resource: ../../app/Runner/Sketches/HelloWorld.php
@@ -17,49 +16,48 @@ sources:
 
 # Steps
 
-1. **Generate the class.** From the app root:
-
-   ```bash
-   php computer make:sketch Blinker
-   ```
-
-   This writes `app/Runner/Sketches/Blinker.php` extending the app base
-   `Sketch`.
-
-2. **Implement `loop()`.** Return `SketchLoopResult::CONTINUE` to tick again or
-   `SketchLoopResult::STOP` to finish. Use `boot()` / `shutdown()` for one-time
-   setup and teardown. Model it on
-   [`HelloWorld`](../../app/Runner/Sketches/HelloWorld.php).[^hello-world]
+1. **Create the class** at `app/Runner/Sketches/Blinker.php`, extending app base `Sketch`. No `make:sketch` in 0.10; model it on [`HelloWorld`](../../app/Runner/Sketches/HelloWorld.php).[^hello-world]
 
    ```php
-   public function loop(): SketchLoopResult
-   {
-       $this->info('tick');
+   <?php
 
-       return SketchLoopResult::CONTINUE;
+   namespace App\Runner\Sketches;
+
+   use Voyager\Contracts\Sketches\SketchLoopResult;
+
+   class Blinker extends Sketch
+   {
+       protected string $description = 'Tick until stopped.';
+
+       public function loop(array $mail = []): SketchLoopResult
+       {
+           $this->info('tick');
+
+           return SketchLoopResult::CONTINUE;
+       }
    }
    ```
 
-3. **Run it.** The short name is the kebab-case of the class:
+   `boot()` / `shutdown()` for one-time setup and teardown. Override `refreshRate(): ?float` for a frame rate other than `sketches.refresh_rate`.
+
+2. **Run it.** Name = kebab-case of the class:
 
    ```bash
-   php runner blinker
+   php rocket blinker
    ```
 
-   Stop a long-running sketch with `Ctrl+C` (`SIGINT`); `shutdown()` still runs.
+   `Ctrl+C` → exit 130; `shutdown()` still runs.
+
+3. **Test it** like `tests/Feature/HelloWorldTest.php`: run `php rocket <name>` in a `Symfony\Component\Process\Process`, assert exit code and output.
 
 # Notes
 
-- Sketches under `app/Runner/Sketches/` are discovered by convention — no
-  registration needed.[^config-sketches]
-- To register a sketch that lives elsewhere, give it `#[Sketch('name')]` and add
-  it to the `load` array in [`config/sketches.php`](../../config/sketches.php).[^config-sketches]
-- Wrap invocations with cross-cutting behavior via the `middleware` array in the
-  same config file.[^config-sketches]
+- Classes under `app/Runner/Sketches/` register by path; nothing to list.
+- Elsewhere: `#[Voyager\Contracts\Sketches\Attributes\Sketch('name')]` plus the class in `load` of [`config/sketches.php`](../../config/sketches.php).[^config-sketches]
 
 # See also
 
-- [Sketches](../sketches.md) — the full execution model.
+- [Sketches](../sketches.md)
 
 [^hello-world]: HelloWorld sketch
 [^config-sketches]: config/sketches.php

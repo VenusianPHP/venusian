@@ -1,12 +1,11 @@
 ---
 type: Application
 title: Venusian Application (skeleton)
-description: A project built on venusian/framework. Two entrypoints — the computer console and the runner sketch loop — bootstrap the same Voyager\System\Application.
+description: A project on venusian/framework 0.10. Two binaries, computer and rocket, boot the same Voyager\Core\RenderedInstance.
 resource: ../composer.json
 tags: [venusian, voyager, application, skeleton, php]
 status: draft
-generated: { by: agent:cursor-okf-generator, at: 2026-08-23T03:51:00Z }
-stale_after: 2026-11-22
+generated: { by: claude-opus-5-5, at: 2026-09-30T00:00:00Z }
 sources:
   - id: composer
     resource: ../composer.json
@@ -14,57 +13,40 @@ sources:
   - id: readme
     resource: ../README.md
     title: Skeleton README
-  - id: computer-bin
-    resource: ../computer
-    title: computer console entrypoint
-  - id: runner-bin
-    resource: ../runner
-    title: runner sketch entrypoint
   - id: bootstrap
     resource: ../bootstrap/app.php
     title: bootstrap/app.php
+  - id: env-example
+    resource: ../.env.example
+    title: .env.example
 ---
 
 # What this is
 
-This repository is a **Venusian application** — the skeleton you build on top of
-[`venusian/framework`](../composer.json) `^0.8.0`.[^composer] Venusian is a
-Laravel-like PHP framework whose code lives under the `Voyager\` namespace. Your
-own code lives under `App\` (PSR-4 → [`app/`](../app)).[^composer]
+Venusian application skeleton on `venusian/framework` `^0.10.0`, with `venusian/probe` `^0.10.0` for the REPL.[^composer] Framework code: `Voyager\` namespace. App code: `App\` → [`app/`](../app).[^composer]
 
-The `.okf/` bundle ships **with** the skeleton so agents keep this context in
-local development. Exclude it from deploy archives by adding `/.okf export-ignore`
-to `.gitattributes` when you ship to a target.[^readme]
+`bootstrap/app.php` builds the app: `VenusianVoyager::setup(base_path: dirname(__DIR__))`, `withExceptions()`, `withSketches([app/Runner/Sketches])`, `create()` → `RenderedInstance`.[^bootstrap]
 
-> Note: [`.env.example`](../.env.example) still sets `APP_NAME=ScrapyardIO`
-> (upstream branding), while `README.md`, `composer.json`, and `config/app.php`
-> use **Venusian**. Same skeleton; the `.env.example` default is what lags.[^readme][^composer]
+`.okf/` ships with the skeleton; `.gitattributes` marks it `export-ignore`, so `git archive` deploy artifacts leave it out.[^readme]
 
 # Requirements
 
 - PHP `^8.4|^8.5|^8.6`.[^composer]
-- `venusian/framework ^0.8.0` (installed via the path repository in
-  `composer.json` during local development).[^composer]
-- Dev tooling: Pest `^4`, Mockery, Faker, Collision.[^composer]
+- Dev: Pest `^4.7`, Mockery, Faker.[^composer]
 
-# Running it
-
-Two console binaries both bootstrap the same
-`Voyager\System\Application`:[^bootstrap]
-
-| Command | Kernel | Purpose |
-|---------|--------|---------|
-| `php computer <cmd>` | `System\Console\Kernel` | Workshop-style CLI — code generators (`make:*`), `package:discover`, etc.[^computer-bin] |
-| `php runner <sketch>` | `System\Sketches\Kernel` | Boots a [sketch](sketches.md) and ticks its `loop()` until it stops.[^runner-bin] |
-
-The default sketch is `App\Runner\Sketches\HelloWorld`; run it with
-`php runner hello-world`.
-
-First-time setup:
+# First run
 
 ```bash
-composer install
-cp .env.example .env    # composer setup / post-root-package-install does this too
+composer create-project venusian/venusian my-app
+```
+
+Hooks: `post-root-package-install` copies `.env.example` → `.env`; `post-create-project-cmd` writes `APP_KEY=base64:…` (32 random bytes) when empty and creates `database/database.sqlite`.[^composer][^env-example] From a git clone: `composer setup` runs install plus both hooks.
+
+```bash
+php rocket hello-world   # Hello, world.
+php computer list
+php computer probe       # REPL
+composer test
 ```
 
 # See also
@@ -76,6 +58,5 @@ cp .env.example .env    # composer setup / post-root-package-install does this t
 
 [^composer]: venusian/venusian composer.json
 [^readme]: Skeleton README
-[^computer-bin]: computer console entrypoint
-[^runner-bin]: runner sketch entrypoint
 [^bootstrap]: bootstrap/app.php
+[^env-example]: .env.example

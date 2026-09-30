@@ -11,8 +11,8 @@ return [
     | so every backend is driven with identical syntax. The default connection
     | is defined below.
     |
-    | This defaults to "sync" rather than "database" because the database
-    | driver needs the Database component, which is not built yet.
+    | This defaults to "sync": it needs no table and no server, which suits a
+    | desktop or device app that hasn't chosen a backend yet.
     |
     */
 
@@ -31,8 +31,7 @@ return [
     |          "failover", "null"
     |
     | Beanstalkd and SQS are not supported — see the driver policy in
-    | .okf/known-gaps.md. The "database" driver needs the Database component
-    | and does not work yet.
+    | .okf/known-gaps.md.
     |
     */
 
@@ -60,6 +59,14 @@ return [
             'after_commit' => false,
         ],
 
+        // in-process, on a worker-pool process or thread; push() returns a promise.
+        // pool: 'thread' or 'process'; left out, the thread workers when they are on
+        'background' => [
+            'driver' => 'background',
+            'pool' => env('QUEUE_BACKGROUND_POOL'),
+        ],
+
+        // in this process, on the loop's next turn; push() returns a promise
         'deferred' => [
             'driver' => 'deferred',
         ],
@@ -96,8 +103,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | These options configure how failed queue jobs are logged, and where they
-    | are kept. This defaults to the file driver, since the database drivers
-    | need the Database component, which is not built yet.
+    | are kept. The file driver needs no table; "database-uuids" keeps them in
+    | the table queue:failed-table creates.
     |
     | Supported drivers: "database-uuids", "file", "null"
     |

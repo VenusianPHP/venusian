@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Voyager\System\Application;
+use Voyager\Core\RenderedInstance;
 use Symfony\Component\Console\Input\ArgvInput;
 
 define('VENUSIAN_START', microtime(true));
@@ -10,9 +10,9 @@ define('VENUSIAN_START', microtime(true));
 require __DIR__.'/vendor/autoload.php';
 
 // Bootstrap Laravel and handle the command...
-/** @var Application $app */
+/** @var RenderedInstance $app */
 $app = require_once __DIR__.'/bootstrap/app.php';
 
-$status = $app->handleCommand(new ArgvInput);
+$status = $app->handleInquiry(new ArgvInput);
 
 exit($status);

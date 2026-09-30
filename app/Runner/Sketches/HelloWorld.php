@@ -16,7 +16,7 @@ class HelloWorld extends Sketch
     /**
      * Execute one cooperative tick of the sketch.
      */
-    public function loop(): SketchLoopResult
+    public function loop(array $mail = []): SketchLoopResult
     {
         $this->info('Hello, world.');
 

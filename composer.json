@@ -4,22 +4,19 @@
     "type": "project",
     "description": "The skeleton application for the Venusian framework.",
     "keywords": [
-        "scrapyard-io",
-        "framework"
+        "venusian",
+        "framework",
+        "skeleton"
     ],
     "license": "MIT",
     "require": {
         "php": "^8.4|^8.5|^8.6",
-        "venusian/framework": "^0.8.1",
-        "venusian/probe": "^0.8.0"
+        "venusian/framework": "^0.10.0",
+        "venusian/probe": "^0.10.0"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
-        "guzzlehttp/psr7": "^2.0",
-        "league/flysystem-path-prefixing": "^3.25.1",
-        "league/flysystem-read-only": "^3.25.1",
+        "fakerphp/faker": "^1.24",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^4.7"
     },
     "autoload": {
@@ -36,29 +33,26 @@
     "scripts": {
         "setup": [
             "composer install",
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "dev": [
-            "Composer\\Config::disableProcessTimeout"
+            "@post-root-package-install",
+            "@post-create-project-cmd"
         ],
         "test": [
             "@php vendor/bin/pest"
         ],
         "post-autoload-dump": [
-            "Voyager\\System\\ComposerScripts::postAutoloadDump",
+            "Voyager\\Core\\ComposerScripts::postAutoloadDump",
             "@php computer package:discover --ansi"
         ],
-        "post-update-cmd": [],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "post-create-project-cmd": [],
-        "pre-package-uninstall": [
-            "Voyager\\System\\ComposerScripts::prePackageUninstall"
+        "post-create-project-cmd": [
+            "@php -r \"file_put_contents('.env', preg_replace('/^APP_KEY=(?=\\R)/m', 'APP_KEY=base64:'.base64_encode(random_bytes(32)), file_get_contents('.env')));\"",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\""
         ]
     },
     "extra": {
-        "scrapyard-io": {
+        "venusian": {
             "dont-discover": []
         }
     },
@@ -70,6 +64,6 @@
             "pestphp/pest-plugin": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

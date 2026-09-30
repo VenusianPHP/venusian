@@ -1,7 +1,9 @@
 <?php
 
-use Voyager\System\Application;
+use Voyager\Core\Bootstrap\Exceptions;
+use Voyager\Core\VenusianVoyager;
 
-return Application::configure(basePath: dirname(__DIR__))
-    ->withExceptions()
+return VenusianVoyager::setup(base_path: dirname(__DIR__))
+    ->withExceptions(function (Exceptions $exceptions): void {})
+    ->withSketches([__DIR__.'/../app/Runner/Sketches'])
     ->create();

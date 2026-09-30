@@ -1,7 +1,5 @@
 <?php
 
-use Voyager\NutsAndBolts\DataObjects\Str;
-
 return [
 
     /*
@@ -103,6 +101,20 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'neo4j' => [
+            'driver' => 'neo4j',
+            'host' => env('NEO4J_HOST', 'localhost'),
+            'port' => env('NEO4J_PORT', 7687),
+            'database' => env('NEO4J_DATABASE', 'neo4j'),
+            'username' => env('NEO4J_USERNAME', 'neo4j'),
+            'password' => env('NEO4J_PASSWORD', ''),
+            'scheme' => env('NEO4J_SCHEME', 'bolt'),
+            'prefix' => env('NEO4J_PREFIX', ''),
+            'options' => [
+                'timeout' => 30,
+            ],
+        ],
+
     ],
 
     /*
@@ -130,6 +142,8 @@ return [
     | provides a richer body of commands than a typical key-value system
     | such as Memcached. You may define your connection settings here.
     |
+    | Client: "phpredis" (ext-redis) or "predis" (predis/predis).
+    |
     */
 
     'redis' => [
@@ -138,7 +152,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'venusian'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', 'venusian_database_'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 
