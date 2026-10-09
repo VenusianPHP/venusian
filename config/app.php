@@ -17,6 +17,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Identifier
+    |--------------------------------------------------------------------------
+    |
+    | Reverse-DNS identity of the app: the macOS bundle identifier, the GTK
+    | application id, the Qt desktop file name. The toolkit drivers read it,
+    | and a packaged build writes the same value, so the window the desktop
+    | sees and the app it installed are one thing.
+    |
+    */
+
+    'id' => env('APP_ID', 'com.venusian.app'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |

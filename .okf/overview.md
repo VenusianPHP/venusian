@@ -27,7 +27,7 @@ Venusian application skeleton on `venusian/framework` `^0.10.0`, with `venusian/
 
 `bootstrap/app.php` builds the app: `VenusianVoyager::setup(base_path: dirname(__DIR__))`, `withExceptions()`, `withSketches([app/Runner/Sketches])`, `create()` → `RenderedInstance`.[^bootstrap]
 
-`.okf/` ships with the skeleton; `.gitattributes` marks it `export-ignore`, so `git archive` deploy artifacts leave it out.[^readme]
+`.okf/` ships into every new app (not `export-ignore`d). To keep it out of a deploy archive, add `/.okf export-ignore` to the app's `.gitattributes`.[^readme]
 
 # Requirements
 

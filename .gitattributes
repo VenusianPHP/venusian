@@ -4,4 +4,3 @@
 *.php diff=php
 
 /.github export-ignore
-/.okf export-ignore

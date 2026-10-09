@@ -26,7 +26,7 @@ Skeleton `config/` = framework 0.10 defaults verbatim, so every setting is visib
 
 | File | Covers |
 |------|--------|
-| [`app.php`](../config/app.php) | name, env, cipher, key, previous keys, providers.[^config-app] |
+| [`app.php`](../config/app.php) | name, id (`APP_ID`, reverse-DNS: bundle identifier, GTK application id, Qt desktop file name; the toolkit drivers read it and a packaged build writes the same value), env, cipher, key, previous keys, providers.[^config-app] |
 | `broadcasting.php` | Broadcast connections: pusher, reverb, redis, log, null. |
 | `cache.php` | Stores: array, database, file, memcached, redis; key prefix. |
 | `concurrency.php` | Concurrency driver and pool. |
