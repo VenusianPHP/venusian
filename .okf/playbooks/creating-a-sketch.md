@@ -4,7 +4,7 @@ title: Creating a sketch
 description: Write a sketch class, implement loop(), run it with rocket.
 tags: [venusian, sketches, playbook]
 status: draft
-generated: { by: claude-opus-5-5, at: 2026-09-30T00:00:00Z }
+generated: { by: claude-opus-5-5, at: 2026-10-28T00:00:00Z }
 sources:
   - id: hello-world
     resource: ../../app/Runner/Sketches/HelloWorld.php
@@ -16,7 +16,11 @@ sources:
 
 # Steps
 
-1. **Create the class** at `app/Runner/Sketches/Blinker.php`, extending app base `Sketch`. No `make:sketch` in 0.10; model it on [`HelloWorld`](../../app/Runner/Sketches/HelloWorld.php).[^hello-world]
+1. **Generate the class.** `make:sketch` writes `app/Runner/Sketches/Blinker.php`, extending app base `Sketch`, with empty `boot()`, `loop()` and `shutdown()`. It warns when the class lands outside every scanned sketch path. Fill in `loop()`, as in [`HelloWorld`](../../app/Runner/Sketches/HelloWorld.php):[^hello-world]
+
+   ```bash
+   php computer make:sketch Blinker
+   ```
 
    ```php
    <?php

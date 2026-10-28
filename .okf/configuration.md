@@ -22,7 +22,7 @@ sources:
 
 Framework ships a default for every file below. At boot each app file is merged over the framework's file of the same name: top-level keys replace; `cache.stores`, `database.connections`, `filesystems.disks`, `logging.channels`, `queue.connections`, `broadcasting.connections`, and `io-pools` `event_loop` / `pool_waiters` / `promise_engines` / `pool_workers` merge one level deeper, so an app adds a store or channel without restating the rest. A file deleted from `config/` falls back to the framework's whole. `->dontMergeFrameworkConfiguration()` on the instance turns layering off.
 
-Skeleton `config/` = framework 0.10 defaults verbatim, so every setting is visible to edit.
+Skeleton `config/` = framework 0.11 defaults verbatim, so every setting is visible to edit.
 
 | File | Covers |
 |------|--------|
@@ -46,7 +46,7 @@ Timezone: `app.timezone` when set, else UTC.
 
 `.env.example` ships every key the configs read that an app commonly sets: `APP_*`, `LOG_*`, `DB_CONNECTION` (sqlite; commented mysql block), `CACHE_STORE`, `QUEUE_CONNECTION`, `BROADCAST_CONNECTION`, `FILESYSTEM_DISK`, `REDIS_*`, `NEO4J_*`, `IO_POOLS_WAITER_BACKEND`, `IO_POOLS_PROCESS_WORKERS`, `HTTP_ASYNC_DRIVER`, `CONCURRENCY_DRIVER`, `SKETCH_REFRESH_RATE`. Everything else falls back to config defaults. `null` / `(null)` read as PHP `null`.[^env-example]
 
-`APP_KEY`: `base64:` + 32 random bytes, written by `post-create-project-cmd` when empty. 0.10 has no `key:generate`. Encryption needs it.[^config-app]
+`APP_KEY`: `base64:` + 32 random bytes, written by `post-create-project-cmd` when empty. 0.11 has no `key:generate`. Encryption needs it.[^config-app]
 
 [^config-app]: config/app.php
 [^env-example]: .env.example

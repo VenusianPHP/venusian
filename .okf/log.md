@@ -1,5 +1,9 @@
 # Update Log
 
+## 2026-10-28
+
+* **Update**: Bundle moved to the 0.11 skeleton. [Overview](overview.md) — `^0.11.0` framework + probe; PHP `~8.4.27||^8.5.12`, the framework's patched floor. [Index](index.md), [Configuration](configuration.md) — 0.11 defaults, still no `key:generate`. [Creating a sketch](playbooks/creating-a-sketch.md) — `make:sketch` generates the class.
+
 ## 2026-10-09
 
 * **Update**: [Configuration](configuration.md) — `app.id` (`APP_ID`, default `com.venusian.app`) added to `config/app.php` and `.env.example`: the app's reverse-DNS identity the toolkit drivers and `venusian build` share.

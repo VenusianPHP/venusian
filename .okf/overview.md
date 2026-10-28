@@ -1,7 +1,7 @@
 ---
 type: Application
 title: Venusian Application (skeleton)
-description: A project on venusian/framework 0.10. Two binaries, computer and rocket, boot the same Voyager\Core\RenderedInstance.
+description: A project on venusian/framework 0.11. Two binaries, computer and rocket, boot the same Voyager\Core\RenderedInstance.
 resource: ../composer.json
 tags: [venusian, voyager, application, skeleton, php]
 status: draft
@@ -23,7 +23,7 @@ sources:
 
 # What this is
 
-Venusian application skeleton on `venusian/framework` `^0.10.0`, with `venusian/probe` `^0.10.0` for the REPL.[^composer] Framework code: `Voyager\` namespace. App code: `App\` → [`app/`](../app).[^composer]
+Venusian application skeleton on `venusian/framework` `^0.11.0`, with `venusian/probe` `^0.11.0` for the REPL.[^composer] Framework code: `Voyager\` namespace. App code: `App\` → [`app/`](../app).[^composer]
 
 `bootstrap/app.php` builds the app: `VenusianVoyager::setup(base_path: dirname(__DIR__))`, `withExceptions()`, `withSketches([app/Runner/Sketches])`, `create()` → `RenderedInstance`.[^bootstrap]
 
@@ -31,7 +31,7 @@ Venusian application skeleton on `venusian/framework` `^0.10.0`, with `venusian/
 
 # Requirements
 
-- PHP `^8.4|^8.5|^8.6`.[^composer]
+- PHP `~8.4.27||^8.5.12`: each line's lowest patched release, the framework's floor.[^composer]
 - Dev: Pest `^4.7`, Mockery, Faker.[^composer]
 
 # First run
