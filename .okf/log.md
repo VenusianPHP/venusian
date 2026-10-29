@@ -2,6 +2,7 @@
 
 ## 2026-10-28
 
+* **Update**: [Structure](structure.md) — `database/migrations/0001_01_01_000001_create_cache_table.php` ships `cache` and `cache_locks`, the tables the `database` cache store reads. Default store stays `file`. venusian/serve's `install:web` publishes `0001_01_01_000000_create_users_table.php` beside it.
 * **Update**: Bundle moved to the 0.11 skeleton. [Overview](overview.md) — `^0.11.0` framework + probe; PHP `~8.4.27||^8.5.12`, the framework's patched floor. [Index](index.md), [Configuration](configuration.md) — 0.11 defaults, still no `key:generate`. [Creating a sketch](playbooks/creating-a-sketch.md) — `make:sketch` generates the class.
 
 ## 2026-10-09

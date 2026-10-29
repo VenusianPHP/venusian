@@ -33,7 +33,7 @@ sources:
 | `app/Runner/Sketches/` | [Sketches](sketches.md). Base [`Sketch`](../app/Runner/Sketches/Sketch.php) extends `Voyager\Sketches\Sketch`. |
 | [`bootstrap/`](../bootstrap) | `app.php` builds the app; `providers.php` app providers; `cache/` discovery and config caches (ignored). |
 | [`config/`](../config) | See [Configuration](configuration.md). |
-| [`database/`](../database) | `seeders/` (`Database\Seeders\`); `database.sqlite` created by Composer hook, ignored. |
+| [`database/`](../database) | `migrations/` (`0001_01_01_000001_create_cache_table.php`: `cache` and `cache_locks` for the `database` cache store); `seeders/` (`Database\Seeders\`); `database.sqlite` created by Composer hook, ignored. |
 | [`storage/`](../storage) | Writable: `app/` (`private`, `public` disks), `framework/cache/data`, `logs/venusian.log`. |
 | [`tests/`](../tests) | Pest, `Tests\`: `Unit/`, `Feature/`.[^phpunit] |
 | `computer` | Console binary. |
