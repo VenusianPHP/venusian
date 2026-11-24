@@ -1,5 +1,9 @@
 # Update Log
 
+## 2026-11-22
+
+* **Fix**: [Structure](structure.md) — `AppShellServiceProvider` compiles and boots: an application's presentation wiring, its config keys and three imports of classes the skeleton does not have are removed. The shell binding stays, for an app to fill in.
+
 ## 2026-10-28
 
 * **Update**: [Structure](structure.md) — `database/migrations/0001_01_01_000001_create_cache_table.php` ships `cache` and `cache_locks`, the tables the `database` cache store reads. Default store stays `file`. venusian/serve's `install:web` publishes `0001_01_01_000000_create_users_table.php` beside it.

@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+function main(): int
+{
+    $app = require_once __DIR__.'/bootstrap/main.php';
+    return 0;
+}
+
+main();

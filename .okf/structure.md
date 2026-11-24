@@ -29,7 +29,7 @@ sources:
 | Path | Purpose |
 |------|---------|
 | [`app/`](../app) | App code, `App\` (PSR-4).[^composer] |
-| `app/Providers/` | Service providers. [`AppServiceProvider`](../app/Providers/AppServiceProvider.php) listed in [`bootstrap/providers.php`](../bootstrap/providers.php).[^providers] |
+| `app/Providers/` | Service providers. [`AppServiceProvider`](../app/Providers/AppServiceProvider.php) listed in [`bootstrap/providers.php`](../bootstrap/providers.php).[^providers] It registers `AppShellServiceProvider`, where an app binds its `ApplicationShell` by `main.presentation.mode`; the skeleton binds none and knows no UI package. |
 | `app/Runner/Sketches/` | [Sketches](sketches.md). Base [`Sketch`](../app/Runner/Sketches/Sketch.php) extends `Voyager\Sketches\Sketch`. |
 | [`bootstrap/`](../bootstrap) | `app.php` builds the app; `providers.php` app providers; `cache/` discovery and config caches (ignored). |
 | [`config/`](../config) | See [Configuration](configuration.md). |

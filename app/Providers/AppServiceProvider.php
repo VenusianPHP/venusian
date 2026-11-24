@@ -2,17 +2,12 @@
 
 namespace App\Providers;
 
+use Voyager\NutsAndBolts\AggregateServiceProvider;
 use Voyager\NutsAndBolts\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class AppServiceProvider extends AggregateServiceProvider
 {
-    public function register(): void
-    {
-        //
-    }
-
-    public function boot(): void
-    {
-        //
-    }
+    protected array $providers = [
+        AppShellServiceProvider::class,
+    ];
 }
